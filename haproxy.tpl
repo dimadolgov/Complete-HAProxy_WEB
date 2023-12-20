@@ -14,18 +14,9 @@ frontend myfrontend
 backend web_servers 
   mode http
   balance roundrobin
+${join("\n", [for i, ip in split(",", instance_ip) : "  server web_server${i + 1} ${ip}:80 check"])}
 " | sudo tee "$haproxy_config"
 
-# Assuming you have executed the terraform apply and have the terraform outputs
-instance_ips=${instance_ip}
-
-# Splitting the comma-separated values into arrays
-IFS=',' read -ra instance_ips <<< "$instance_ips"
-
-# Add server lines for each instance IP
-for ip in ${instance_ips}; do
-    echo "server web $ip:80 check" | sudo tee -a "$haproxy_config"
-done
 
 # Restart and enable HAProxy
 sudo systemctl restart haproxy

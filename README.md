@@ -37,7 +37,6 @@ Before using this Terraform configuration, ensure that you have the following pr
 
     ```bash
     git clone https://github.com/dimadolgov/WEB_HAProxy.git
-    cd terraform-aws-web-haproxy
     ```
 
 2. Initialize Terraform:

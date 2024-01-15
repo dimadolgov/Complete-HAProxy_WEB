@@ -1,7 +1,7 @@
 # Infrastructure as Code with Terraform
 
 This repository contains Terraform code for provisioning and managing AWS infrastructure for a web application with HAProxy.
-The end result will allow you can access your server "haproxy" using public ip address and each new web request will be answered by different web server
+The end result will allow you to access your server "haproxy" using public ip address and each new web request will be answered by different web server
 
 1. Clone the repository:
 
